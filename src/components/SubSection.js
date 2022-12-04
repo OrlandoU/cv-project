@@ -1,27 +1,43 @@
 import React from "react";
 
-class SubSection extends React.Component{
-    constructor(props){
+class SubSection extends React.Component {
+    constructor(props) {
         super(props)
         this.state = {
-            subSection: this.props.subSection,
+            subSectionInfo: {},
+            subSectionId: this.props.subSectionId,
             sectionTemplate: this.props.sectionTemplate
         }
+        this.saveNewInfo = this.saveNewInfo.bind(this)
     }
 
-    render(){
-        console.log(this.state.sectionTemplate)
+    saveNewInfo(event){
+        let input = event.target
+        let header = input.id.split('-')[1]
+        let value = input.value
+
+        this.setState((prevState)=>{
+            return {
+                subSectionInfo : {...prevState.subSectionInfo, [header] : value}
+            }
+        }, () => {
+            this.props.updateSection(this.state.subSectionInfo, this.state.subSectionId, this.state.sectionTemplate.section)
+        })    
+    }
+
+    render() {
         return (
-            <div className="subsection-container">
-                {this.state.sectionTemplate.template.map(template=>{
+            //Rendering whole template for current section
+            <form className="subsection-container" >
+                {this.state.sectionTemplate.template.map((template, index) => {
                     return (
-                        <div className="input-container">
-                            <label htmlFor=""></label>
-                            <input type="text" />
+                        <div key={index + '-' + template.header} className="input-container">
+                            <label htmlFor={this.state.subSectionId + '-' + template.header}>{template.header}</label>
+                            {template.type === 'TextArea'? <textarea onChange={this.saveNewInfo} className="textarea-input" /> : <input onChange={this.saveNewInfo} name={template.header} id={this.state.subSectionId + '-' + template.header} type={template.type} />}
                         </div>
                     )
                 })}
-            </div>
+            </form>
         )
     }
 }

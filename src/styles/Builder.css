@@ -1,0 +1,111 @@
+.builder-header {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.builder-container {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 35px;
+    overflow: auto;
+    height: 100%;
+}
+.section-container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.section-container>header {
+    font-size: 1.2rem;
+    text-align: left;
+    font-weight: 500;
+}
+
+.subsection-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: start;
+    gap: 40px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+}
+
+.input-container label {
+    font-size: .8rem;
+    color: rgb(130, 139, 162);
+}
+
+.input-container input {
+    width: 100%;
+    height: 48px;
+    background-color: rgb(239, 242, 249);
+    border: none;
+    outline: none;
+    padding: 16px;
+    font-size: 1.1rem;
+    border-radius: 3px;
+    caret-color: rgb(26, 145, 240);
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.info-container {
+    color: rgb(130, 139, 162);
+    font-size: .9rem;
+}
+
+.addInput {
+    color: rgb(26, 145, 240);
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+
+.addInput:hover {
+    background-color: rgba(234, 246, 255, 0.5);
+    cursor: pointer;
+}
+
+.textarea-input{
+    background-color: rgb(239, 242, 249);
+    width: 100%;
+    resize: none;
+    outline: none;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+}
+
+.Summary .subsection-container{
+    display: flex;
+}
+
+input:focus~span{
+    transform: scaleX(1);
+}
+.input-container span{
+    transition: 200ms ease-in-out;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2px;
+    background-color: rgb(26, 145, 240);
+    transform: scaleX(0);
+}
+.info-container:empty{
+    display: none;
+}
