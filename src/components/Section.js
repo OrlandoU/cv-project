@@ -31,7 +31,7 @@ class Section extends React.Component {
                     })}
                 </ul>
 
-                {(this.state.section.section === 'Personal Info') || (this.state.section.section === 'Professional Summary') ? <div></div> : <div className="addInput" onClick={() => {
+                {(this.state.section.section === 'Personal Details') || (this.state.section.section === 'Professional Summary') ? <div></div> : <div className="addInput" onClick={() => {
                     this.props.addSection(this.state.section.section, this.state.subSectionId)
                     this.updateId()
                 }}>Add {this.state.section.add} +</div>}

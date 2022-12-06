@@ -1,6 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import Builder from './components/Builder';
+import TemplateContainer from './components/TemplateContainer';
 import {useState} from 'react'
 import cvInfo from './objects/cvInfo';
 
@@ -22,7 +23,6 @@ function App() {
       })
   }
   const addSection = (section, id) => {
-    console.log(id)
     setInfoDb(prevState => {
       return prevState.map(crrSection=>{
         if(crrSection.sectionName === section){
@@ -37,7 +37,6 @@ function App() {
   }
 
   const updateSection = (newObj, id, section) => {
-    console.log(id)
     setInfoDb(prevState => {
       return prevState.map(crrSection => {
         if(crrSection.sectionName === section){
@@ -56,10 +55,11 @@ function App() {
       })
     })
   }
-  console.log(infoDb)
+
   return (
     <div className="App">
-         <Builder updateSection={updateSection} removeSection={removeSection} addSection={addSection} savedInfo={infoDb}/>
+        <Builder updateSection={updateSection} removeSection={removeSection} addSection={addSection} savedInfo={infoDb}/>
+        <TemplateContainer cvInfo={infoDb}/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const cvInfo = [
     {
-        sectionName: 'Personal Info',
+        sectionName: 'Personal Details',
         data: [
             {id: 0}
         ]
@@ -17,6 +17,30 @@ const cvInfo = [
 
         ]
     },
+    {
+        sectionName: 'Education',
+        data: [
+
+        ]
+    },
+    {
+        sectionName: 'Languages',
+        data: [
+
+        ]
+    },
+    {
+        sectionName: 'Skills',
+        data: [
+
+        ]
+    },
+    {
+        sectionName: 'Courses',
+        data: [
+
+        ]
+    }
 ]
 
 export default cvInfo
