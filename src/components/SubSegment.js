@@ -16,7 +16,7 @@ class SubSegment extends React.Component {
                     return (
                         <div key={index} className={key+" subSegment-element"}>
                             <header className="subSegment-header">{key}</header>
-                            <div className={this.props.subSegmentInfo[key] + " element-value"}>{this.props.subSegmentInfo[key]}</div>
+                            <div className={key+' '+ this.props.subSegmentInfo[key]+ " element-value"}>{this.props.subSegmentInfo[key]}</div>
                         </div>)
 
                 })}

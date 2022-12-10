@@ -60,7 +60,7 @@ const sectionTemplates = [
             },
             {
                 header: 'Description',
-                type: 'Text'
+                type: 'TextArea'
             },
         ]
     },
@@ -87,7 +87,7 @@ const sectionTemplates = [
             },
             {
                 header: 'Description',
-                type: 'Text'
+                type: 'TextArea'
             },
         ]
     },
@@ -126,12 +126,20 @@ const sectionTemplates = [
             },
             {
                 header: 'Institution',
-                type: 'Select'
+                type: 'Text'
             },
             {
                 header: 'Start & End Date',
                 type: 'Date'
-            }
+            },
+            {
+                header: 'City',
+                type: 'Text'
+            },
+            {
+                header: 'Description',
+                type: 'TextArea'
+            },
         ]
     }
 ]

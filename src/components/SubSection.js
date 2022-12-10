@@ -70,7 +70,7 @@ class SubSection extends React.Component {
                         return (
                             <div key={index + '-' + template.header} className="input-container">
                                 <label>{template.header}</label>
-                                {template.type === 'TextArea' ? <textarea rows='8' onChange={this.saveNewInfo} className="textarea-input" /> : <input autoComplete='off' onChange={this.saveNewInfo} name={template.header} id={this.state.subSectionId + '-' + template.header} type={template.type} />}
+                                {template.type === 'TextArea' ? <textarea id={this.state.subSectionId + '-' + template.header} rows='8' onChange={this.saveNewInfo} className="textarea-input" /> : <input autoComplete='off' onChange={this.saveNewInfo} name={template.header} id={this.state.subSectionId + '-' + template.header} type={template.type} />}
                                 <span></span>
                             </div>
                         )

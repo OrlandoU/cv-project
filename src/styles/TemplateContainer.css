@@ -1,3 +1,6 @@
+html{
+    font-size: 16px;
+}
 .template-container{
     width: 100%;
     background-color: #282c34;
@@ -24,14 +27,16 @@
 }
 .cv-template{
     background-color: white;
-    width: 545px;
+    width: 595px;
     aspect-ratio: 1 / 1.414;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     padding: 40px;
     gap: 50px;
-    overflow: hidden;
+}
+.overflow-container{
+    overflow: auto;
 }
 .Personal.Details.subsegment-container > header{
     display: none;
@@ -109,7 +114,7 @@
     width: 30px;
     background-color: #282c34;
     font-size: 1rem;
-    top: 20px;
+    top: 22px;
 }
 .segment-header{
     text-transform: uppercase;
@@ -221,10 +226,10 @@
 .Details .subSegment-container{
     flex-direction: column;
 }
-.Job.title::after{
+.subSegment-container > .Job.title::after,.subSegment-container > .School::after{
     content: ',';
 }
-.Job.title{
+.Job.title, .School{
     flex-direction: row;
     gap: 3px;
 }
@@ -233,15 +238,18 @@
 }
 .right-segment-container .City{
     order: 2;
-    flex: 1 0 50%;
     text-align: right;
+    flex: 1;
     color: rgb(165,165,165);
 }
 .startDate{
     order: 3;
+    flex: 1 0 80%;
     flex-direction: row;
     position: relative;
     color: rgb(75, 75, 75);
+    text-align: right;
+    justify-content: flex-end;
 }
 .endDate{
     color: rgb(75, 75, 75);
@@ -299,4 +307,19 @@
 }
 .left-segment-container .First,.left-segment-container .Last{
     display: none;
+}
+@media print{
+
+}
+
+.printBody{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.printBody .cv-template{
+    transform: scale(1.28);
 }

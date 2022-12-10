@@ -28,6 +28,7 @@ class Section extends React.Component {
                                 return <SubSection key={index} updateSection={this.props.updateSection} subSectionId={savedData.id} sectionTemplate={this.state.section} />
                             })
                         }
+                        return null
                     })}
                 </ul>
 

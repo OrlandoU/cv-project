@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+
 import './styles/App.css';
 import Builder from './components/Builder';
 import TemplateContainer from './components/TemplateContainer';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import cvInfo from './objects/cvInfo';
-import { saveAsPng } from 'save-html-as-image';
+import ReactToPrint from "react-to-print";
 
 function App() {
+  let componentRef = useRef()
   const [infoDb, setInfoDb] = useState(cvInfo)
 
 
@@ -24,7 +25,7 @@ function App() {
         })
       }
     })
-    
+
   }
   const addSection = (section, id) => {
     setInfoDb(prevState => {
@@ -38,7 +39,7 @@ function App() {
         return crrSection
       })
     })
-    
+
   }
 
   const updateSection = (newObj, id, section) => {
@@ -59,11 +60,11 @@ function App() {
         return crrSection
       })
     })
-    
+
   }
 
   useEffect(() => {
-    const resize= (event) =>{
+    const resize = (event) => {
       let value = window.innerWidth / 1920
       console.log(value)
       document.getElementById('toBeResized').style.transform = `scale(${value})`
@@ -75,19 +76,27 @@ function App() {
       window.removeEventListener('resize', resize);
     }
   }, []);
-  const printCv = () => {
-    let element = document.getElementById('toBeResized')
-    element.style.transform = 'scale(1)'
-    saveAsPng(element, {filename: 'CV'})
-  }
+
 
 
   return (
     <div className="App">
+      
+
       <Builder updateSection={updateSection} removeSection={removeSection} addSection={addSection} savedInfo={infoDb} />
       <div className="template-container">
-        <TemplateContainer cvInfo={infoDb} />
-        <button className='printCv-button' onClick={printCv} type='button'>Print CV</button>
+        <div className="overflow-container">
+          <TemplateContainer 
+          ref={(el) => (componentRef = el)} 
+          cvInfo={infoDb} 
+          />
+        </div>
+        <ReactToPrint
+        bodyClass='printBody'
+        trigger={() => <button className='printCv-button' type='button'>Print CV</button>}
+        content={() => componentRef}
+        removeAfterPrint={true}
+      />
       </div>
     </div>
   );
