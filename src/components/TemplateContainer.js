@@ -12,7 +12,7 @@ class TemplateContainer extends React.Component {
     render() {
         return (
             <div id='toBeResized' className="cv-template">
-                <header>{(this.props.cvInfo[0].data[0]['First Name']? this.props.cvInfo[0].data[0]['First Name']: ' ' ) + (this.props.cvInfo[0].data[0]['Last Name'] ? this.props.cvInfo[0].data[0]['Last Name']: ' ')}</header>
+                <header>{(this.props.cvInfo[0].data[0]['First Name']? this.props.cvInfo[0].data[0]['First Name']: ' ' ) +" "+ (this.props.cvInfo[0].data[0]['Last Name'] ? this.props.cvInfo[0].data[0]['Last Name']: ' ')}</header>
                 <div className="main-segment-containers">
                     <div className="left-segment-container">
                         {this.props.cvInfo.map((section, index) =>

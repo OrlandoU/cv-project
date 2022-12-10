@@ -4,10 +4,10 @@ import Builder from './components/Builder';
 import TemplateContainer from './components/TemplateContainer';
 import { useState, useEffect, useRef } from 'react'
 import cvInfo from './objects/cvInfo';
-import ReactToPrint from "react-to-print";
+import { useReactToPrint } from 'react-to-print';
 
 function App() {
-  let componentRef = useRef()
+  const componentRef = useRef()
   const [infoDb, setInfoDb] = useState(cvInfo)
 
 
@@ -77,26 +77,21 @@ function App() {
     }
   }, []);
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    bodyClass: 'printBody'
+  })
 
 
   return (
     <div className="App">
-      
 
       <Builder updateSection={updateSection} removeSection={removeSection} addSection={addSection} savedInfo={infoDb} />
       <div className="template-container">
         <div className="overflow-container">
-          <TemplateContainer 
-          ref={(el) => (componentRef = el)} 
-          cvInfo={infoDb} 
-          />
+          <TemplateContainer ref={componentRef} cvInfo={infoDb} />
         </div>
-        <ReactToPrint
-        bodyClass='printBody'
-        trigger={() => <button className='printCv-button' type='button'>Print CV</button>}
-        content={() => componentRef}
-        removeAfterPrint={true}
-      />
+        <button onClick={handlePrint} className='printCv-button' type='button'>Print CV</button>
       </div>
     </div>
   );
