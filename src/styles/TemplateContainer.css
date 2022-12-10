@@ -1,0 +1,302 @@
+.template-container{
+    width: 100%;
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+}
+.printCv-button{
+    background-color: rgb(0, 128, 255);
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: 600;
+    padding: 10px 50px;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+.printCv-button:hover{
+    background-color: rgba(0, 128, 255, 0.672);
+    color: #c6c6c6;
+    cursor: pointer;
+}
+.cv-template{
+    background-color: white;
+    width: 545px;
+    aspect-ratio: 1 / 1.414;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    gap: 50px;
+    overflow: hidden;
+}
+.Personal.Details.subsegment-container > header{
+    display: none;
+}
+.cv-template > header{
+    width: min-content;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.segment-container > *{
+    background-color: blueviolet;
+}
+.main-segment-containers{
+    display: flex;
+    gap: 50px;
+    position: relative;
+    height: 100%;
+}
+.main-segment-containers::before{
+    content: '';
+    height: 1px;
+    background-color: rgb(233,233,233);
+    width: 100%;
+    margin-top: -25px;
+    position: absolute;
+}
+.right-segment-container::after{
+    content: '';
+    height: 100%;
+    background-color: rgb(233,233,233);
+    width: 1px;
+    margin-left: -25px;
+    left: 0;
+    position: absolute;
+}
+.subSegment-element{
+    font-size: .6rem;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+.selectLevel.subSegment-element{
+    font-size: .6rem;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+}
+.subSegment-header{
+    display: none;
+}
+.Details .subSegment-header{ 
+    text-transform: uppercase;
+    letter-spacing: .2px;
+    display: block;
+}
+.Personal.Details.subsegment-container{
+    position: relative;
+}
+
+.Personal.Details.subsegment-container::before{
+    content: 'Details';
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1rem;
+}
+.Personal.Details.subsegment-container::after{
+    position: absolute;
+    content: '';
+    height: 2px;
+    width: 30px;
+    background-color: #282c34;
+    font-size: 1rem;
+    top: 20px;
+}
+.segment-header{
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 1rem;
+    position: relative;
+}
+.left-segment-container, .right-segment-container{
+    display: flex;
+    gap: 50px;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+.left-segment-container{
+    width: 30%;
+}
+.right-segment-container{
+    width: 70%;
+}
+.subsegment-container{
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    position: relative;
+}
+.right-segment-container .subsegment-container::after{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: rgb(233,233,233);
+    margin-top: -25px;
+}
+.subSegment-container{
+    display: flex;
+    gap: 10px;
+}
+.segment-header::before{
+    content: '';
+    position: absolute;    
+    height: 2px;
+    width: 30px;
+    background-color: #282c34;
+    top: 110%;
+}
+.Professional .subSegment-header{
+    display: none;
+}
+.subSegment-container{
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.Very.Good::after{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 50%;
+    left: 0;
+    background-color: #282c34;
+    bottom: 0;
+}
+.Very.Good::before{
+    bottom: 0;
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    background-color: rgb(233,233,233);
+}
+.Highly::after{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 70%;
+    left: 0;
+    background-color: #282c34;
+    bottom: 0;
+}
+.Highly::before{
+    bottom: 0;
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    background-color: rgb(233,233,233);
+}
+.Native::after{
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    background-color: #282c34;
+    bottom: 0;
+}
+.Native::before{
+    bottom: 0;
+    content: '';
+    position: absolute;
+    height: 5px;
+    width: 100%;
+    left: 0;
+    background-color: rgb(233,233,233);
+}
+.Details .subSegment-container{
+    flex-direction: column;
+}
+.Job.title::after{
+    content: ',';
+}
+.Job.title{
+    flex-direction: row;
+    gap: 3px;
+}
+.Employer{
+    order: 1;
+}
+.right-segment-container .City{
+    order: 2;
+    flex: 1 0 50%;
+    text-align: right;
+    color: rgb(165,165,165);
+}
+.startDate{
+    order: 3;
+    flex-direction: row;
+    position: relative;
+    color: rgb(75, 75, 75);
+}
+.endDate{
+    color: rgb(75, 75, 75);
+
+}
+.startDate::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    height: 1px;
+    width: 5px;
+    background-color: #282c34;
+    bottom: 40%;
+    right: 0;
+    margin-right: -7px;
+}
+.endDate{
+    order: 4;
+}
+.Description{
+    order: 5;
+    flex: 1 0 100%;
+    color: rgb(120, 120, 120);
+}
+.Professional .subSegment-element {
+    color: rgb(120, 120, 120);
+}
+.left-segment-container{
+    gap: 20px;
+}
+.left-segment-container .element-value{
+    color: rgb(120, 120, 120);
+    font-size: .6rem;
+}
+.left-segment-container .subSegment-header{
+    font-size: .7rem;
+}
+.Skills .element-value, .Languages .element-value{
+    color: #282c34;
+}
+.Languages .subSegment-container{
+    padding-bottom: 10px;
+}
+.Skills .segment-header{
+    margin-bottom: 20px;
+}
+.Skills.subsegment-container{
+    gap: 0;
+}
+.Skill .element-value{
+    margin-bottom: 10px;
+}
+.date-container input{
+    font-size: .8rem;
+}
+.left-segment-container .First,.left-segment-container .Last{
+    display: none;
+}

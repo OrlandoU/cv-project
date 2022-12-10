@@ -12,7 +12,7 @@ const sectionTemplates = [
             },
             {
                 header: 'Email',
-                type: 'Text'
+                type: 'email'
             },
             {
                 header: 'Phone',
@@ -23,7 +23,7 @@ const sectionTemplates = [
                 type: 'Text'
             },
             {
-                header: 'Last Name',
+                header: 'City',
                 type: 'Text',
             }
         ]

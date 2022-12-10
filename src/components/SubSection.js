@@ -57,7 +57,8 @@ class SubSection extends React.Component {
                                 <div key={index} className="select-main-container">
                                     <label>{template.header}</label>
                                     <div className="select-container">
-                                        <select onChange={this.saveNewInfo} name='select' id={this.state.subSectionId + '-startDate'} type={template.type}>
+                                        <select onChange={this.saveNewInfo} name='select' id={this.state.subSectionId + '-selectLevel'} type={template.type}>
+                                            <option selected disabled value="Select Level">Select Level</option>
                                             <option value="Native speaker">Native Speaker</option>
                                             <option value="Highly proficient">Highly proficient</option>
                                             <option value="Very Good Command">Very Good Command</option>
@@ -69,7 +70,7 @@ class SubSection extends React.Component {
                         return (
                             <div key={index + '-' + template.header} className="input-container">
                                 <label>{template.header}</label>
-                                {template.type === 'TextArea' ? <textarea onChange={this.saveNewInfo} className="textarea-input" /> : <input autoComplete='off' onChange={this.saveNewInfo} name={template.header} id={this.state.subSectionId + '-' + template.header} type={template.type} />}
+                                {template.type === 'TextArea' ? <textarea rows='8' onChange={this.saveNewInfo} className="textarea-input" /> : <input autoComplete='off' onChange={this.saveNewInfo} name={template.header} id={this.state.subSectionId + '-' + template.header} type={template.type} />}
                                 <span></span>
                             </div>
                         )

@@ -1,7 +1,9 @@
 .builder-header {
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-decoration: overline;
 }
 
 .builder-container {
@@ -11,7 +13,9 @@
     padding: 70px 100px;
     gap: 35px;
     overflow: auto;
+    overflow: auto;
     height: 100%;
+    width: 80%;
 }
 
 .section-container {
@@ -21,9 +25,9 @@
 }
 
 .section-container>header {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     text-align: left;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .subSection-container {
@@ -188,8 +192,7 @@ input:focus~span {
 
 ::-webkit-scrollbar-thumb {
     background: #00acee;
-    box-shadow: 0 -100vh 0 100vh #00acee;
-    border-radius: 8px;
+    box-shadow: 0 -100vh #00acee;
 }
 
 .hide{
@@ -200,4 +203,7 @@ input~.subsection-container{
 }
 .isSelected:checked~form{
     display: grid;
+}
+.select-container select{
+    padding: 8px 16px;
 }
