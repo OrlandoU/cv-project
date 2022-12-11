@@ -12,7 +12,9 @@ class Section extends React.Component {
 
 
     updateId() {
-        this.setState({ subSectionId: this.state.subSectionId + 1 })
+        this.setState(prevState => {
+            return {subSectionId : prevState.subSectionId + 1}
+        } )
     }
 
     render() {
@@ -25,7 +27,7 @@ class Section extends React.Component {
                         if (section.sectionName === this.state.section.section) {
                             //Render Subsection for each element in DB data of crr section
                             return section.data.map((savedData, index) => {
-                                return <SubSection key={index} updateSection={this.props.updateSection} subSectionId={savedData.id} sectionTemplate={this.state.section} />
+                                return <SubSection key={index} removeSection={this.props.removeSection} updateSection={this.props.updateSection} savedData={savedData} subSectionId={savedData.id} sectionTemplate={this.state.section} />
                             })
                         }
                         return null
@@ -33,7 +35,7 @@ class Section extends React.Component {
                 </ul>
 
                 {(this.state.section.section === 'Personal Details') || (this.state.section.section === 'Professional Summary') ? <div></div> : <div className="addInput" onClick={() => {
-                    this.props.addSection(this.state.section.section, this.state.subSectionId)
+                    this.props.addSection(this.state.section, this.state.subSectionId)
                     this.updateId()
                 }}>Add {this.state.section.add} +</div>}
             </div>

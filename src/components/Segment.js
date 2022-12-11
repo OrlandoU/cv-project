@@ -22,7 +22,6 @@ class Segment extends React.Component {
                     </div>
                 )
             }else if(!this.state.left && !(this.props.sectionInfo.sectionName === "Personal Details" || this.props.sectionInfo.sectionName === "Skills" || this.props.sectionInfo.sectionName === "Languages")){
-                console.log(this.props.sectionInfo.sectionName)
                 return (
                     <div className={this.props.sectionInfo.sectionName + " subsegment-container"}>
                         <header className="segment-header">{this.props.sectionInfo.sectionName}</header>

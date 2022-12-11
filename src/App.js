@@ -7,42 +7,51 @@ import cvInfo from './objects/cvInfo';
 import { useReactToPrint } from 'react-to-print';
 
 function App() {
+  let localDb = JSON.parse(localStorage.getItem('db')) || cvInfo
+  console.log(localDb)
   const componentRef = useRef()
-  const [infoDb, setInfoDb] = useState(cvInfo)
+  const [infoDb, setInfoDb] = useState(localDb)
 
+  const saveChanges = () => {
+    localStorage.setItem('db', JSON.stringify(infoDb))
+  }
 
   const removeSection = (section, id) => {
     setInfoDb((prevState) => {
-      return {
-        infoDb: prevState.map(crrSection => {
-          if (crrSection.sectionName === section) {
-            return {
-              data: crrSection.data.filter((data) => data.id === id),
-              name: crrSection.sectionName
-            }
-          }
-          return crrSection
-        })
-      }
-    })
-
-  }
-  const addSection = (section, id) => {
-    setInfoDb(prevState => {
       return prevState.map(crrSection => {
         if (crrSection.sectionName === section) {
           return {
             sectionName: crrSection.sectionName,
-            data: [...crrSection.data, { id }]
+            data: crrSection.data.filter(el=>el.id !== id)
           }
         }
         return crrSection
       })
     })
+    saveChanges()
+  }
 
+  const addSection = (section, id) => {
+    let emptyInputArr = {}
+    section.template.forEach(el=>{
+      emptyInputArr[el.header] = ''
+    })
+    setInfoDb(prevState => {
+      return prevState.map(crrSection => {
+        if (crrSection.sectionName === section.section) {
+          return {
+            sectionName: crrSection.sectionName,
+            data: [...crrSection.data, {...emptyInputArr, id }]
+          }
+        }
+        return crrSection
+      })
+    })
+    saveChanges()
   }
 
   const updateSection = (newObj, id, section) => {
+    console.log(newObj)
     setInfoDb(prevState => {
       return prevState.map(crrSection => {
         if (crrSection.sectionName === section) {
@@ -60,7 +69,7 @@ function App() {
         return crrSection
       })
     })
-
+    saveChanges()
   }
 
   useEffect(() => {
@@ -82,7 +91,7 @@ function App() {
     bodyClass: 'printBody'
   })
 
-
+  console.log(infoDb)
   return (
     <div className="App">
 

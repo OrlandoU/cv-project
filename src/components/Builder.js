@@ -14,7 +14,7 @@ class Builder extends React.Component{
     render(){
         return(
             <div className="builder-container">
-                <div className="builder-header">Resume Builder</div>
+                <div className="builder-header">OnePageCV</div>
                 {sectionTemplates.map(section=>{
                     return <Section key={section.section} updateSection={this.props.updateSection} addSection={this.props.addSection} removeSection={this.props.removeSection} section={section} savedInfo={this.props.savedInfo}/>
                 })}

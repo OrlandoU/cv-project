@@ -5,11 +5,12 @@ html{
 .cv-template{
     background-color: white;
     width: 595px;
-    min-height: 841.33px;
+    height: 841.33px;
     display: flex;
     flex-direction: column;
     padding: 40px;
     gap: 50px;
+    overflow: clip;
 }
 .template-container{
     width: 100%;
@@ -331,8 +332,6 @@ html{
 }
 
 @media print {
-    .printElement {
-    }
     .cv-template{
         transform: scale(1.3);
     }
