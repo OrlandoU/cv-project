@@ -5,8 +5,16 @@ class Section extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            subSectionId: 0,
             section: this.props.section,
+            subSectionId: (()=>{
+                let id = 0;
+                this.props.savedInfo.forEach(el=>{
+                    if(el.sectionName === this.props.section.section && el.data.length){
+                        id = el.data[el.data.length - 1].id
+                    }
+                })
+                return id
+            })(),
         }
     }
 

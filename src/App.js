@@ -7,14 +7,10 @@ import cvInfo from './objects/cvInfo';
 import { useReactToPrint } from 'react-to-print';
 
 function App() {
-  let localDb = JSON.parse(localStorage.getItem('db')) || cvInfo
+  let localDb = JSON.parse(localStorage.getItem('cvDb')) || cvInfo
   console.log(localDb)
   const componentRef = useRef()
   const [infoDb, setInfoDb] = useState(localDb)
-
-  const saveChanges = () => {
-    localStorage.setItem('db', JSON.stringify(infoDb))
-  }
 
   const removeSection = (section, id) => {
     setInfoDb((prevState) => {
@@ -28,7 +24,6 @@ function App() {
         return crrSection
       })
     })
-    saveChanges()
   }
 
   const addSection = (section, id) => {
@@ -47,7 +42,6 @@ function App() {
         return crrSection
       })
     })
-    saveChanges()
   }
 
   const updateSection = (newObj, id, section) => {
@@ -69,7 +63,6 @@ function App() {
         return crrSection
       })
     })
-    saveChanges()
   }
 
   useEffect(() => {
@@ -85,6 +78,10 @@ function App() {
       window.removeEventListener('resize', resize);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('cvDb', JSON.stringify(infoDb)) 
+  },[infoDb]);
 
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,

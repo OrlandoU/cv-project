@@ -22,8 +22,9 @@ class SubSection extends React.Component {
         return (
             //Rendering whole template for current section
             <label htmlFor={this.state.sectionTemplate.section + this.props.subSectionId} className="section">
-                {(this.state.sectionTemplate.section === 'Personal Details') || (this.state.sectionTemplate.section === 'Professional Summary') ? null : <header className='subsection-info'>{(this.props.savedData['Job title'] || this.props.savedData['School'] || this.props.savedData['Skill'] || this.props.savedData['Course'] || this.props.savedData['Language']) || 'Empty'}<img src={expand} alt="Expand button" /></header>}
                 {(this.state.sectionTemplate.section === 'Personal Details') || (this.state.sectionTemplate.section === 'Professional Summary') ? null : <input style={{ display: 'none' }} className='isSelected' type="radio" defaultChecked name='selection' id={this.state.sectionTemplate.section + this.props.subSectionId} />}
+                {(this.state.sectionTemplate.section === 'Personal Details') || (this.state.sectionTemplate.section === 'Professional Summary') ? null : <header className='subsection-info'>{(this.props.savedData['Job title'] || this.props.savedData['School'] || this.props.savedData['Skill'] || this.props.savedData['Course'] || this.props.savedData['Language']) || 'Empty'}<img src={expand} alt="Expand button" /></header>}
+                
 
                 <form className={"subsection-container"}>
                     {this.state.sectionTemplate.template.map((template, index) => {
@@ -68,7 +69,7 @@ class SubSection extends React.Component {
                         )
                     })}
                 </form>
-                {(this.state.sectionTemplate.section === 'Personal Details') || (this.state.sectionTemplate.section === 'Professional Summary') ? null : <button type='button' onClick={() => {
+                {(this.state.sectionTemplate.section === 'Personal Details') || (this.state.sectionTemplate.section === 'Professional Summary') ? null : <button className='delete-button' type='button' onClick={() => {
                     this.props.removeSection(this.state.sectionTemplate.section, this.props.subSectionId)
                 }}>X</button>}
 

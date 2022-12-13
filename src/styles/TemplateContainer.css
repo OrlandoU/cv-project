@@ -10,6 +10,7 @@ html{
     flex-direction: column;
     padding: 40px;
     gap: 50px;
+    border-radius: 5px;
     overflow: clip;
 }
 .template-container{
@@ -327,9 +328,7 @@ html{
     align-items: center;
 }
 
-.overflow-container{
-    overflow: scroll;
-}
+
 
 @media print {
     .cv-template{
