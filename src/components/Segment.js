@@ -1,40 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import SubSegment from "./SubSegment";
 
-class Segment extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            left: this.props.left
+function Segment(props) {
+    const [left] = useState(props.left)
+
+    if (props.sectionInfo.data.length) {
+        if (left && (props.sectionInfo.sectionName === "Personal Details" || props.sectionInfo.sectionName === "Skills" || props.sectionInfo.sectionName === "Languages")) {
+            return (
+                <div className={props.sectionInfo.sectionName + " subsegment-container"}>
+                    <header className="segment-header">{props.sectionInfo.sectionName}</header>
+                    {props.sectionInfo.data.map((subSegmentInfo, index) =>
+                        <SubSegment key={index} subSegmentInfo={subSegmentInfo} />
+                    )}
+                </div>
+            )
+        } else if (!left && !(props.sectionInfo.sectionName === "Personal Details" || props.sectionInfo.sectionName === "Skills" || props.sectionInfo.sectionName === "Languages")) {
+            return (
+                <div className={props.sectionInfo.sectionName + " subsegment-container"}>
+                    <header className="segment-header">{props.sectionInfo.sectionName}</header>
+                    {props.sectionInfo.data.map((subSegmentInfo, index) =>
+                        <SubSegment key={index} subSegmentInfo={subSegmentInfo} />
+                    )}
+                </div>
+            )
         }
+
     }
+    return
 
-    render() {
-
-        if (this.props.sectionInfo.data.length) {
-            if (this.state.left && (this.props.sectionInfo.sectionName === "Personal Details" || this.props.sectionInfo.sectionName === "Skills" || this.props.sectionInfo.sectionName === "Languages")) {
-                return (
-                    <div className={this.props.sectionInfo.sectionName + " subsegment-container"}>
-                        <header className="segment-header">{this.props.sectionInfo.sectionName}</header>
-                        {this.props.sectionInfo.data.map((subSegmentInfo, index) =>
-                            <SubSegment key={index} subSegmentInfo={subSegmentInfo} />
-                        )}
-                    </div>
-                )
-            }else if(!this.state.left && !(this.props.sectionInfo.sectionName === "Personal Details" || this.props.sectionInfo.sectionName === "Skills" || this.props.sectionInfo.sectionName === "Languages")){
-                return (
-                    <div className={this.props.sectionInfo.sectionName + " subsegment-container"}>
-                        <header className="segment-header">{this.props.sectionInfo.sectionName}</header>
-                        {this.props.sectionInfo.data.map((subSegmentInfo, index )=>
-                            <SubSegment key={index} subSegmentInfo={subSegmentInfo} />
-                        )}
-                    </div>
-                )
-            }
-
-        }
-        return
-    }
 }
 
 export default Segment

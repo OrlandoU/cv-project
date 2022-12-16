@@ -3,7 +3,6 @@ import Segment from './Segment'
 import '../styles/TemplateContainer.css'
 
 function TemplateContainer(props) {
-    
     return (
         <div id='toBeResized' className="cv-template">
             <header>{(props.cvInfo[0].data[0]['First Name'] ? props.cvInfo[0].data[0]['First Name'] : ' ') + " " + (props.cvInfo[0].data[0]['Last Name'] ? props.cvInfo[0].data[0]['Last Name'] : ' ')}</header>
@@ -22,7 +21,6 @@ function TemplateContainer(props) {
 
         </div>
     )
-
 }
 
 export default TemplateContainer

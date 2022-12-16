@@ -6,7 +6,7 @@ function Section(props) {
     const [subSectionId, setSubSectionId] = useState()
 
     const updateId = () => {
-        setSubSectionId(prevState => prevState.subSectionId + 1)
+        setSubSectionId(prevState => prevState + 1)
     }
 
     useEffect(() => {
@@ -17,18 +17,19 @@ function Section(props) {
             }
         })
         setSubSectionId(id)
+        console.log(id)
     }, [])
 
-
+    console.log(props.savedInfo)
     return (
         <div className={section.section + " section-container"}>
             <header>{section.section}</header>
             <div className="info-container">{section.info}</div>
             <ul className="subSection-container">
-                {props.savedInfo.map(section => {
-                    if (section.sectionName === section.section) {
+                {props.savedInfo.map(element => {
+                    if (element.sectionName === section.section) {
                         //Render Subsection for each element in DB data of crr section
-                        return section.data.map((savedData, index) => {
+                        return element.data.map((savedData, index) => {
                             return (
                                 <SubSection
                                     key={index}
