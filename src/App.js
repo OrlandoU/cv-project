@@ -64,11 +64,9 @@ function App() {
       })
     })
   }
-
   useEffect(() => {
     const resize = (event) => {
       let value = window.innerWidth / 1920
-      console.log(value)
       document.getElementById('toBeResized').style.transform = `scale(${value})`
     }
 

@@ -63,7 +63,7 @@
     gap: 40px;
     border-radius: 5px;
 }
-.input-container:nth-last-child(1){
+.Education .input-container:nth-last-child(1), .Employment .input-container:nth-last-child(1), .Courses .input-container:nth-last-child(1){
     grid-column: span 2;
 }
 
