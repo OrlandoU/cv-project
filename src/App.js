@@ -64,6 +64,18 @@ function App() {
       })
     })
   }
+  useEffect(() => {
+    const resize = (event) => {
+      let value = window.innerWidth / 1920
+      document.getElementById('toBeResized').style.transform = `scale(${value})`
+    }
+
+    window.addEventListener('resize', resize)
+
+    return () => {
+      window.removeEventListener('resize', resize);
+    }
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('cvDb', JSON.stringify(infoDb)) 
