@@ -8,7 +8,6 @@ import { useReactToPrint } from 'react-to-print';
 
 function App() {
   let localDb = JSON.parse(localStorage.getItem('cvDb')) || cvInfo
-  console.log(localDb)
   const componentRef = useRef()
   const [infoDb, setInfoDb] = useState(localDb)
 
@@ -70,6 +69,7 @@ function App() {
       document.getElementById('toBeResized').style.transform = `scale(${value})`
     }
 
+    resize()
     window.addEventListener('resize', resize)
 
     return () => {
