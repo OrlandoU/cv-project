@@ -6,7 +6,7 @@ Check out the live demo at https://orlandou.github.io/cv-builder/
 
 ## Getting Started
 - Prerequisites: Node.js, npm
-- Clone the repo: `git clone https://github.com/orlandou/cv-builder.git` 
+- Clone the repo: `git clone https://github.com/OrlandoU/cv-builder.git` 
 - Install dependencies: `npm install`
 - Start the development server: `npm start`
 - Build for production: `npm run build`
